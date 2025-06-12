@@ -9,7 +9,19 @@ import SwiftUI
 
 public struct DostoView: View {
     
-    let html = """
+    var html: String = ""
+    
+    public init(_ html: String){
+        self.html = html
+    }
+    
+    public var body: some View {
+        WebView(html: html)
+    }
+}
+
+#Preview {
+    DostoView("""
         <!DOCTYPE html>
         <html>
         <head>
@@ -26,27 +38,9 @@ public struct DostoView: View {
         <body style="background: cyan;">
             <h1>Hello SwiftUI!</h1>
             <p>This is dynamically rendered HTML content.</p>
-            <h1>Hello SwiftUI!</h1>
-            <p>This is dynamically rendered HTML content.</p>
-            <h1>Hello SwiftUI!</h1>
-            <p>This is dynamically rendered HTML content.</p>
-            <h1>Hello SwiftUI!</h1>
-            <p>This is dynamically rendered HTML content.</p>
         </body>
         </html>
-        """
-    
-    public init(){
-        
-    }
-    
-    public var body: some View {
-        WebView(html: html)
-    }
-}
-
-#Preview {
-    DostoView()
+        """)
 }
 
 extension UIColor {
